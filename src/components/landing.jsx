@@ -19,7 +19,9 @@ export default function Landing(){
     return(
         <div className="landing">
             <header>
-                <h2>Abantu<span>verse</span></h2>
+                <h2 onClick={(e)=>{
+                    e.preventDefault();
+                }}>Abantu<span>verse</span></h2>
 
                 <div className="auth">
                     <button className="loginBtn" onClick={()=>navigate('/login')}>sign in</button>
@@ -30,12 +32,12 @@ export default function Landing(){
             <div className="hero">
                 <h1>Read Comics on</h1>
                 <h2>Abantuverse</h2>
-                <span className="hero-description" onClick={()=>navigate('/login')}>Discover and read Malawian comics and graphic novels.</span>
-                <span className="hero-description" onClick={()=>navigate('/login')}>Your next favorite story is waiting</span>
+                <span className="hero-description" >Discover and read Malawian comics and graphic novels.</span>
+                <span className="hero-description" >Your next favorite story is waiting</span>
 
                 <div className="cta">
-                    <button className="accent" >start reading for free</button>
-                    <button className="cta-browse">Browse Library</button>
+                    <button className="accent" onClick={()=>navigate('/login')}>start reading for free</button>
+                    <button className="cta-browse" onClick={()=>navigate('/login')}>Browse Library</button>
                 </div>
 
                 <div className="description">
