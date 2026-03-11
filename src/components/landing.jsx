@@ -30,11 +30,11 @@ export default function Landing(){
             <div className="hero">
                 <h1>Read Comics on</h1>
                 <h2>Abantuverse</h2>
-                <span className="hero-description">Discover and read Malawian comics and graphic novels.</span>
-                <span className="hero-description">Your next favorite story is waiting</span>
+                <span className="hero-description" onClick={()=>navigate('/login')}>Discover and read Malawian comics and graphic novels.</span>
+                <span className="hero-description" onClick={()=>navigate('/login')}>Your next favorite story is waiting</span>
 
                 <div className="cta">
-                    <button className="accent">start reading for free</button>
+                    <button className="accent" >start reading for free</button>
                     <button className="cta-browse">Browse Library</button>
                 </div>
 
