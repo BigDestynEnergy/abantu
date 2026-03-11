@@ -11,7 +11,7 @@
 body{
   min-height: 100vh;
   font-family: Camera Plain Variable, ui-sans-serif, system-ui, sans-serif;
-  background: linear-gradient(to bottom right, #0d0f11e5, #111);
+  background: linear-gradient(135deg, hsl(220 14% 6%) 0%, #1a1d23);
   color: white;
 }
 

@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom"
+
 const cards = [
     {label: 'Vast Library', icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>,
         info: 'Explore hundreds of Malawian comics and graphic novels'
@@ -13,15 +15,15 @@ const cards = [
 ]
 
 export default function Landing(){
-
+    const navigate = useNavigate()
     return(
         <div className="landing">
             <header>
                 <h2>Abantu<span>verse</span></h2>
 
                 <div className="auth">
-                    <button className="loginBtn">sign in</button>
-                    <button className="accent">create account</button>
+                    <button className="loginBtn" onClick={()=>navigate('/login')}>sign in</button>
+                    <button className="accent" onClick={()=>navigate('/create')}>create account</button>
                 </div>
             </header>
 
