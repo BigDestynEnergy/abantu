@@ -1,0 +1,24 @@
+:root{
+  --accent: #ffc61a;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  min-height: 100vh;
+  font-family: Camera Plain Variable, ui-sans-serif, system-ui, sans-serif;
+  background: linear-gradient(to bottom right, #0d0f11e5, #111);
+  color: white;
+}
+
+button{
+  padding: 8px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}

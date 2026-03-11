@@ -1,0 +1,158 @@
+.landing header{
+    padding: 24px;
+    background: #0d0f11e5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.landing h2{
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.landing h2:hover{
+    transform: translateY(-2px);
+}
+.landing h2 span{
+    color: var(--accent);
+}
+
+.landing .accent{
+    background: #000;
+    border-color: var(--accent);
+    color: var(--accent);
+    
+}
+
+.landing .accent:hover{
+    transform: scale(1.06);}
+
+.landing .loginBtn:hover{
+    border-color: var(--accent);
+}
+
+.loginBtn{
+    background: #000;
+    color: white;
+}
+
+.landing .auth{
+    display: flex;
+    gap: 8px;
+}
+.landing header button{
+    padding: 8px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+.landing .hero{
+    margin-top: 100px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h1{
+    margin-bottom: 10px;
+    margin-top: 40px;
+    font-size: 4em;
+}
+
+.hero h2{
+color: var(--accent);
+margin-bottom: 20px;
+font-size: 2em;
+}
+
+.hero .hero-description{
+    color: #888787;
+}
+
+.cta{
+    margin-top: 40px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.cta button{
+    padding: 16px;
+    border-radius: 16px;
+    border: 2px solid transparent;
+}
+
+.cta-browse{
+    background: #000;
+    color: white;
+}
+
+.cta-browse:hover{
+    border-color: var(--accent);
+}
+
+.hero .description{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-description-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 24px;
+    gap: 10px;
+}
+
+svg{
+    color: var(--accent);
+    height: 60px;
+}
+
+
+.hero-card{
+    padding: 32px;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-card:hover{
+    border-color: var(--accent);
+}
+
+footer{
+    background: #0d0f11e5;
+    padding: 24px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 568px){
+    .hero-description-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    gap: 10px;
+}
+}
