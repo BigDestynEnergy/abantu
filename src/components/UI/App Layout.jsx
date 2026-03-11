@@ -1,15 +1,15 @@
-
+//AppLayout.jsx
 import AppHeader from './AppHeader';
 import AppSidebar from './AppSidebar';
 
-export default function AppLayout({ title, children }) {
+export default function AppLayout({user}) {
   return (
     <>
       <AppSidebar />
-      <AppHeader title={title} />
+      <AppHeader user={user}/>
       <main className="abantu-main">
         <div className="abantu-content">
-          {children}
+         
         </div>
       </main>
     </>

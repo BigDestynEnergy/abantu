@@ -102,6 +102,10 @@ font-size: 2em;
     border-color: var(--accent);
 }
 
+:root{
+    --dark: #0d0f11e5;
+}
+
 .hero .description{
     margin-top: 20px;
     display: flex;
@@ -118,7 +122,7 @@ font-size: 2em;
     gap: 10px;
 }
 
-svg{
+.landing svg{
     color: var(--accent);
     height: 60px;
 }
