@@ -11,12 +11,12 @@ const comics = [
 {label: 'Multiverse Man', id: 'mm', genre: 'Sci-Fi', logo: 'MM'},
 {label: 'Happy Day', id: 'hp', genre: 'Comedy', logo: 'HD'},
 {label: 'The X Anomaly', id: 'txa', genre: 'Sci-Fi', logo: 'TXA'},
-{label: 'An Axe/Ex Murder', id: 'axm', genre: 'Murder Mystery', logo: 'AXM'},
-  {label: 'The Insignificants', id: 'ti', genre: 'Fantasy/Horror', logo: 'TI'},
-  {label: 'Bloodhounds', id: 'bh', genre: 'Horror/Action', logo: 'BH'},
+{label: 'An Axe/Ex Murder', id: 'axm', genre: 'Thriller', logo: 'AXM'},
+  {label: 'The Insignificants', id: 'ti', genre: 'Horror', logo: 'TI'},
+  {label: 'Bloodhounds', id: 'bh', genre: 'Action', logo: 'BH'},
   {label: 'Firepower', id: 'fp', genre: 'Action', logo: 'FP'},
-  {label: 'Dear Ever After', id: 'dea', genre: 'Romance/Fantasy', logo: 'DEA'},
-  {id: 'war', genre: 'Fantasy/Action/Drama', logo: 'WAR', label: 'Wrath And Reign'},
+  {label: 'Dear Ever After', id: 'dea', genre: 'Romance', logo: 'DEA'},
+  {id: 'war', genre: 'Action', logo: 'WAR', label: 'Wrath And Reign'},
   
 ]
 

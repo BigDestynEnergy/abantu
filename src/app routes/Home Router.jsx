@@ -2,12 +2,14 @@
 import { Outlet } from "react-router-dom";
 import AppHeader from "../components/UI/AppHeader";
 
-export default function HomeLayout({user}){
+export default function HomeLayout({user, setSearch, setGenre}){
 
     return(
         <div className="homepage">
             <div className="side">
-                <AppHeader user={user} />
+                <AppHeader user={user}
+                setGenre={setGenre}
+                setSearch={setSearch} />
                 <Outlet/>
             </div>
         </div>
