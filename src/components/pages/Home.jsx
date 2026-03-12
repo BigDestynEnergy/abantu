@@ -85,6 +85,7 @@ function toggleLibrary(comic){
                 <button onClick={() => toggleLibrary(cc)}>
   {liked ? "Remove from library" : "Add to library"}
 </button>
+<button>Download</button>
                 <button>Go to creator</button>
                 <button>View Credits</button>
                 <button>Share</button>

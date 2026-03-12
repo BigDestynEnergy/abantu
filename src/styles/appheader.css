@@ -228,6 +228,10 @@
     background: #303030;
 }
 
+.reader-page{
+    z-index: 5;
+}
+
 .comic-card:hover{
     transform: translateY(-4px);
     border-color:var(--accent);
