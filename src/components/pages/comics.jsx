@@ -1,24 +1,23 @@
 const comics = [
-  { label: "Laugh Riot", id: "laugh_riot", logo: "L", genre: "Comedy" },
-  { label: "Shadow Strike", id: "shadow_strike", logo: "S", genre: "Action" },
-  { label: "Haunted Hollow", id: "haunted_hollow", logo: "H", genre: "Horror" },
-  { label: "Mystic Realm", id: "mystic_realm", logo: "M", genre: "Fantasy" },
-  { label: "Giggle Patrol", id: "giggle_patrol", logo: "G", genre: "Comedy" },
-  { label: "Blade Runner", id: "blade_runner", logo: "B", genre: "Action" },
-  { label: "Nightmare Alley", id: "nightmare_alley", logo: "N", genre: "Horror" },
-  { label: "Dragonspire", id: "dragonspire", logo: "D", genre: "Fantasy" },
-  { label: "Joke’s On You", id: "jokes_on_you", logo: "J", genre: "Comedy" },
-  { label: "Urban Clash", id: "urban_clash", logo: "U", genre: "Action" },
-  { label: "Ghoul Town", id: "ghoul_town", logo: "G", genre: "Horror" },
-  { label: "Crystal Kingdom", id: "crystal_kingdom", logo: "C", genre: "Fantasy" },
-  { label: "Comedy Squad", id: "comedy_squad", logo: "C", genre: "Comedy" },
-  { label: "Steel Titans", id: "steel_titans", logo: "S", genre: "Action" },
-  { label: "Blood Moon", id: "blood_moon", logo: "B", genre: "Horror" },
-  { label: "Elven Tales", id: "elven_tales", logo: "E", genre: "Fantasy" },
-  { label: "Prank Masters", id: "prank_masters", logo: "P", genre: "Comedy" },
-  { label: "Rapid Fire", id: "rapid_fire", logo: "R", genre: "Action" },
-  { label: "The Forgotten", id: "the_forgotten", logo: "T", genre: "Horror" },
-  { label: "Skyward Saga", id: "skyward_saga", logo: "S", genre: "Fantasy" }
-];
+  
+{label: 'Rise Of The Phenomenals', id: 'rotp', genre: 'Superhero', logo: 'R'},
 
-export default comics;
+  {label: 'The Untold Tales Of Agnes', id: 'tutoa', genre: 'Horror/Comedy', logo: 'TUTOA'},
+  
+  {label: 'Strange Unexplainable Occurences', id: 'suo', genre: 'Horror', logo: 'SUO'},
+{label: 'Fine Wine', id: 'fw', logo: 'FW', genre: 'Fantasy'},
+{label: 'Molecule', id: 'm', genre: 'Superhero', logo: 'M'},
+{label: 'Sparrow', id: 'sp', genre: 'Superhero', logo: 'S'},
+{label: 'Multiverse Man', id: 'mm', genre: 'Sci-Fi', logo: 'MM'},
+{label: 'Happy Day', id: 'hp', genre: 'Comedy', logo: 'HD'},
+{label: 'The X Anomaly', id: 'txa', genre: 'Sci-Fi', logo: 'TXA'},
+{label: 'An Axe/Ex Murder', id: 'axm', genre: 'Murder Mystery', logo: 'AXM'},
+  {label: 'The Insignificants', id: 'ti', genre: 'Fantasy/Horror', logo: 'TI'},
+  {label: 'Bloodhounds', id: 'bh', genre: 'Horror/Action', logo: 'BH'},
+  {label: 'Firepower', id: 'fp', genre: 'Action', logo: 'FP'},
+  {label: 'Dear Ever After', id: 'dea', genre: 'Romance/Fantasy', logo: 'DEA'},
+  {id: 'war', genre: 'Fantasy/Action/Drama', logo: 'WAR', label: 'Wrath And Reign'},
+  
+]
+
+export default comics

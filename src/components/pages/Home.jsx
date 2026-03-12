@@ -1,4 +1,6 @@
 import comics from './comics'
+
+
 export default function HomePage(){
 
     return(
@@ -12,7 +14,7 @@ export default function HomePage(){
                             <div className="top">{cc.logo}</div>
                             <div className="bottom">
                                 <span>{cc.label}</span>
-                                <span>{cc.genre}</span>
+                                <span className='genre'>{cc.genre}</span>
                             </div>
                         </div>
                     )
