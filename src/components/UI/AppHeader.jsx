@@ -25,7 +25,7 @@ export default function AppHeader({user, setSearch,setGenre}){
     const navigate = useNavigate()
     const [find, setFind] = useState('')
     const [tabsOpen, setTabsOpen] = useState(false)
-    const [activeFilter, setActiveFilter] = useState('')
+    const [activeFilter, setActiveFilter] = useState('All')
 
     function handleNavigation(label){
         if(label === 'Logout'){{navigate('/login'); setMenu}(false)}
@@ -83,9 +83,9 @@ export default function AppHeader({user, setSearch,setGenre}){
         className={`fc ${activeFilter === filter.label ? "active" : ""}`}
         key={index}
         onClick={() => {
-          setActiveFilter(filter.label)
-          setGenre(filter.label)
-        }}
+            setActiveFilter(filter.label)
+            setGenre(filter.label === 'All' ? "" : filter.label)
+}}
       >
         {filter.label}
       </div>

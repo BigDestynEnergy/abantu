@@ -142,6 +142,10 @@
     border:3px solid #333;
     width:38px;
     border-radius:50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px;
 }
 
 .profile-card svg:hover{
@@ -204,10 +208,28 @@
     overflow:hidden;
     cursor:pointer;
     transition:.25s;
+    position: relative;
+}
+
+.comic-card .dots{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    margin-right: 4px;
+    flex-direction: column;
+    transform: rotate(90deg);
+    margin-top: 8px;
+    border-radius: 24px;
+    padding: 4px;cursor: pointer;
+}
+
+.dots:hover{
+    background: #303030;
 }
 
 .comic-card:hover{
-    transform:translateY(-4px);
+    transform: translateY(-4px);
     border-color:var(--accent);
 }
 
@@ -218,7 +240,38 @@
     background:#000;
     display:flex;
     align-items:center;
+    font-size: 3em;
     justify-content:center;
+}
+
+.context{
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    align-items: center;
+    background: #1d1d1d;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-top: 20px;
+    gap: 4px;
+    border-radius: 8px;
+    animation: enter 0.3s ease;
+}
+
+.context button{
+    padding: 4px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: 2px solid transparent;
+}
+
+.context button:hover{
+    text-decoration: underline;
 }
 
 /* bottom info */
