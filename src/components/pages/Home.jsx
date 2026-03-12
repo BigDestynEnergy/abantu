@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import comics from './comics'
 
-export default function HomePage({ search, genre }) {
+export default function HomePage({ search, genre, library, setLibrary }) {
   const [menu, setMenu] = useState(null)
   const [contextMenu, setContextMenu] = useState(null)
     useEffect(() => {
@@ -13,6 +13,19 @@ export default function HomePage({ search, genre }) {
 
     return () => window.removeEventListener("click", handleWindowClick)
   }, [])
+
+function toggleLibrary(comic){
+
+  const exists = library.find(c => c.id === comic.id)
+
+  if(exists){
+    setLibrary(prev => prev.filter(c => c.id !== comic.id))
+  } else {
+    setLibrary(prev => [...prev, comic])
+  }
+
+}
+
 
   const filtered = comics.filter(comic => {
 
@@ -35,17 +48,21 @@ export default function HomePage({ search, genre }) {
 
   function openContext(id){
   setContextMenu(prev => prev === id ? null : id)
-}
-  
+} 
 
   return (
     <div className="homepage">
       <div className="comic-cards">
-        {filtered.map((cc) => (
-          <div className="comic-card"
-          onMouseOver={()=> hoverDots(cc.id)}
-          onMouseLeave={()=> closeDots()}
-          key={cc.id}>
+      {filtered.map((cc) => {
+
+  const liked = library.some(c => c.id === cc.id)
+
+  return(
+    <div className="comic-card"
+      onMouseOver={()=> hoverDots(cc.id)}
+      onMouseLeave={()=> closeDots()}
+      key={cc.id}
+    >
             <div className="top">{cc.logo}</div>
 
             <div className="bottom">
@@ -65,7 +82,9 @@ export default function HomePage({ search, genre }) {
               <div className="context"
               onClick={(e) => e.stopPropagation()}
               >
-                <button>Add to library</button>
+                <button onClick={() => toggleLibrary(cc)}>
+  {liked ? "Remove from library" : "Add to library"}
+</button>
                 <button>Go to creator</button>
                 <button>View Credits</button>
                 <button>Share</button>
@@ -73,7 +92,8 @@ export default function HomePage({ search, genre }) {
             )}
           </div>
           
-        ) )
+        )
+        } )
         }
         
       </div>

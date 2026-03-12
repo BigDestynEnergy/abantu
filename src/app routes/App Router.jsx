@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Landing from "../components/landing"
 import LoginPage from "../components/auth/Login"
 import CreatePage from "../components/auth/create"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import HomePage from "../components/pages/Home"
 import DownloadsPage from '../components/pages/Downloads'
 import HomeLayout from "./Home Router"
@@ -17,6 +17,14 @@ export default function AppRouter(){
     const [user, setUser] = useState("")
     const [search, setSearch] = useState("")
     const [genre, setGenre] = useState("")
+    const [library, setLibrary] = useState(() => {
+        const saved = localStorage.getItem("library")
+        return saved ? JSON.parse(saved) : [];
+    }) //saving them liked comics bitch 😜
+
+    useEffect(()=> {
+        localStorage.setItem("library", JSON.stringify(library))
+    }, [library])
 
     return(
         <BrowserRouter>
@@ -34,11 +42,15 @@ export default function AppRouter(){
                 setSearch={setSearch}
                 user={user}/>}>
 
-                    <Route index element={<HomePage search={search} genre={genre}/>}/>
+                    <Route index element={<HomePage
+                     search={search}
+                     library={library}
+                     setLibrary={setLibrary}
+                      genre={genre}/>}/>
                     <Route path="downloads" element={ <DownloadsPage/> }/>
                     <Route path="settings" element={<SettingsPage/>}/>
                     <Route path="community" element={<CommunityPage />}/>
-                    <Route path="reader" element={<ReaderPage/>}/>
+                    <Route path="reader" element={<ReaderPage library={library}/>}/>
                 </Route>
 
             </Routes>
