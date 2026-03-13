@@ -6,6 +6,7 @@ import './styles/appheader.css'
 import './styles/union.css'
 import './styles/comics.css'
 import './styles/home.css'
+import './styles/Header.css'
 
 export default function App(){
 

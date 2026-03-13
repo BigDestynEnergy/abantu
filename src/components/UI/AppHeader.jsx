@@ -47,22 +47,37 @@ export default function AppHeader({user, setSearch,setGenre}){
     }
     return(
         <header className="App-header">
-            <img src={tabsOpen ? close : menuImg} 
-            title={tabsOpen ? 'Close Sidebar' : 'Open Sidebar'}
-            className="menuSvg" onClick={()=>setTabsOpen(!tabsOpen)} />
+            <h1>A<span>V</span></h1>
 
-            {tabsOpen ? 
-             <div className="nav">
-                {navCards.map((card) => {
-                    return(
-                        <div className="crd" onClick={()=>navigateTabs(card.label)} >
-                            <div className="label">{card.label}</div>
-                        </div>
-                    )
-                })}
-            </div> : ''}
             
-            <div className="search">
+                 {/* FILTER CHIPS*/}
+
+                 <div className="tabs-n-filters">
+                    <span>search by:</span>
+                      <img src={tabsOpen ? close : menuImg} 
+            title={tabsOpen ? 'Close Sidebar' : 'Open Sidebar'}
+            className="menuSvg" onClick={()=>setTabsOpen(!tabsOpen)} />          
+        
+        {tabsOpen ? <div className="filter-cards">
+        
+         {filterCards.map((filter, index) => {
+                return (
+                <div
+                    className={`fc ${activeFilter === filter.label ? "active" : ""}`}
+                    key={index}
+                    onClick={() => {
+                        setActiveFilter(filter.label)
+                        setGenre(filter.label === 'All' ? "" : filter.label)
+}}
+      >
+        {filter.label}
+      </div>
+    )
+  })}
+</div> : ''}
+</div>
+
+             <div className="search">
                 <input type="search"
                 value={find}
                 onChange={(e)=>{setFind(e.target.value);
@@ -71,28 +86,17 @@ export default function AppHeader({user, setSearch,setGenre}){
                 <img src={search} className="searchBtn"
                  onClick={()=> {getSearch(); setFind('')}} />
             </div>
-            <h1>Abantu<span>verse</span></h1>
 
-         <div className="tabs-n-filters">
-           <div className="filter-cards">
-  <span>search by:</span>
-
-  {filterCards.map((filter, index) => {
-    return (
-      <div
-        className={`fc ${activeFilter === filter.label ? "active" : ""}`}
-        key={index}
-        onClick={() => {
-            setActiveFilter(filter.label)
-            setGenre(filter.label === 'All' ? "" : filter.label)
-}}
-      >
-        {filter.label}
-      </div>
-    )
-  })}
-</div>
-         </div>
+             <div className="nav">
+                {navCards.map((card) => {
+                    return(
+                        <div className="crd" onClick={()=>navigateTabs(card.label)} >
+                            <div className="label">{card.label}</div>
+                        </div>
+                    )
+                })}
+            </div>
+            
 
             <div
             title="open profile"
