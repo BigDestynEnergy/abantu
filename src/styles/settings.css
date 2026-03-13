@@ -1,0 +1,59 @@
+.profile-page, .settings-page{
+  max-width:900px;
+  margin:auto;
+  z-index: 1;
+  padding:30px;
+  color:white;
+}
+
+.profile-header{
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+.avatar{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+}
+
+.profile-stats{
+  display:flex;
+  gap:40px;
+  margin-top:30px;
+}
+
+.stat{
+  text-align:center;
+}
+
+.recent-grid{
+  margin-top:20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.comic{
+  background:#1e1e1e;
+  padding:20px;
+  border: 2px solid transparent;
+  border-radius:6px;
+}
+
+.settings-section{
+  margin-top:30px;
+}
+
+.setting{
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
+}
+
+.profile-page .comic:hover{
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid var(--accent);
+}

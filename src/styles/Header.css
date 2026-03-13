@@ -29,14 +29,14 @@
     border-radius:12px;
     border:1px solid #333;
     cursor:pointer;
-    transition:.25s;
+    transition: 0.25s ease;
 }
 
 .fc:hover{
     border-color:var(--accent);
 }
 
-.fc.active{
+.active{
     background:var(--accent);
     color:#111;
     border-color:var(--accent);
@@ -65,7 +65,7 @@ h1{cursor: pointer;}
 
 
 @media (max-width: 600px){
-    .filter-cards, .search, .tabs-n-filters{display: none;}
+    .filter-cards, .tabs-n-filters{display: none;}
     .nav{flex-direction: row; display: flex;gap: 8px;}
     .crd{background: var(--hbb); padding: 2px; border-radius: 8px;}
     .menu{top: 100px;}

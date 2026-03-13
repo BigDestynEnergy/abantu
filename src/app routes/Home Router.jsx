@@ -10,7 +10,7 @@ export default function HomeLayout({user, setSearch, setGenre}){
                 <AppHeader user={user}
                 setGenre={setGenre}
                 setSearch={setSearch} />
-                <Outlet/>
+                <Outlet user={user}/>
             </div>
         </div>
     )

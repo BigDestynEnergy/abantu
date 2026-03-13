@@ -1,105 +1,160 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
+import { supabase } from "../../lib/supabaseClient"
 
 const red = {
-    background: '#8f06065d',
-    border: '1px solid red'
+  background: "#8f06065d",
+  border: "1px solid red"
 }
 
 const green = {
-    background: '#00571fb6',
-    border: '1px solid #1db954'
+  background: "#00571fb6",
+  border: "1px solid #1db954"
 }
 
-export default function LoginPage({setUser}){
+export default function LoginPage({ setUser }) {
 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [hide, setHide] = useState(false)
-    const [name, setName] = useState('')
-    const [note, setNote] = useState('')
-    const [yes, setYes] = useState(false)
+  const navigate = useNavigate()
 
-    function handleNote(text){
-        setNote(text)
-        setTimeout(()=>{
-            setNote('')
-        }, 2000)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [hide, setHide] = useState(false)
+  const [name, setName] = useState("")
+  const [note, setNote] = useState("")
+  const [yes, setYes] = useState(false)
+
+  function handleNote(text) {
+    setNote(text)
+    setTimeout(() => {
+      setNote("")
+    }, 2000)
+  }
+
+  function passwordVerification() {
+    if (!/[A-Z]/.test(password)) handleNote("Add an uppercase letter")
+    else if (!/[a-z]/.test(password)) handleNote("Add a lowercase letter")
+    else if (!/\d/.test(password)) handleNote("Add a number")
+    else if (!/\W/.test(password)) handleNote("Add a symbol")
+    else if (password.length < 8) handleNote("Must contain at least 8 characters")
+    else {
+      createAccount()
     }
+  }
 
-    function passwordVerification(){
-        if(!/[A-Z]/.test(password))handleNote('Add an uppercase letter');
-        else if(!/[a-z]/.test(password))handleNote('Add a lowercase letter');
-        else if(!/\d/.test(password))handleNote('Add a number');
-        else if(!/\W/.test(password))handleNote('Add a symbol');
-        else if(password.length < 8)handleNote('Must contain at least 8 characters')
-        else{
+  async function createAccount() {
 
-            setYes(true)
-            handleNote('Login successful...Please wait')
-            setTimeout(()=>{
-                setUser(name);
-                navigate('/home')
-            }, 2000)
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        data: {
+          name: name
         }
+      }
+    })
+
+    if (error) {
+      setYes(false)
+      handleNote(error.message)
+      return
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        // const data = { email, password }
-        //learn backend batile iwe
-        if(name === '')handleNote('Please create username');
-        else if(email === '')handleNote('Please enter your email');
-        else if(password === '')handleNote('Please enter your password');
-        else{passwordVerification()}
-    }
-    // Password Auth Complete
-const navigate = useNavigate()
-    return(
-        <div className="login-page">
-            <form onSubmit={(e)=>handleSubmit(e)}>
-                <h2 onClick={()=>navigate('/')}>Abantu<span>verse</span></h2>
+    setYes(true)
+    handleNote("Account created... Please wait")
 
-                <h1>Welcome</h1>
-                <h4>sign in to continue reading</h4>
-               {note ?  <span style={yes ? green : red} className="note">{note}</span> : ''}
-                <div className="inputs">
-                      <div className="input-group">
-                        <label>Display name</label>
-                        <input type="text"
-                        value={name}
-                        onChange={(e)=>setName(e.target.value)}
-                        placeholder="example @Jane Doe 👤" />
-                    </div>
+    setTimeout(() => {
 
-                    <div className="input-group">
-                        <label>Email</label>
-                        <input type="email"
-                        value={email}
-                        onChange={(e)=>setEmail(e.target.value)}
-                        placeholder="you@example.com" />
-                    </div>
+      setUser({
+        name: name,
+        email: email
+      })
 
-                        <div className="input-group">
-                        <label>Password</label>
-                        <input type={hide ? 'text' : 'password'}
-                        value={password}
-                        onChange={(e)=>setPassword(e.target.value)}
-                         placeholder="••••••••" />
-                    </div>
+      navigate("/home")
 
-                    <div className="show">
-                        <input type="checkbox" onClick={()=>{setHide(!hide)}} />
-                        <span>{hide ? 'Hide password' : 'Show password'}</span>
-                    </div>
+    }, 2000)
+  }
 
-                    <button>create account</button>
+  function handleSubmit(e) {
+    e.preventDefault()
 
-                    <div className="lower">
-                        Already have an account? <span onClick={()=>navigate('/login')}>Sign in</span>
-                    </div>
-                </div>
-            </form>
+    if (name === "") handleNote("Please create username")
+    else if (email === "") handleNote("Please enter your email")
+    else if (password === "") handleNote("Please enter your password")
+    else passwordVerification()
+  }
+
+  return (
+    <div className="login-page">
+      <form onSubmit={handleSubmit}>
+
+        <h2 onClick={() => navigate("/")}>
+          Abantu<span>verse</span>
+        </h2>
+
+        <h1>Welcome</h1>
+        <h4>sign in to continue reading</h4>
+
+        {note ? (
+          <span style={yes ? green : red} className="note">
+            {note}
+          </span>
+        ) : ""}
+
+        <div className="inputs">
+
+          <div className="input-group">
+            <label>Display name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="example @Jane Doe 👤"
+            />
+          </div>
+
+          <div className="input-group">
+            <label>Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <div className="input-group">
+            <label>Password</label>
+            <input
+              type={hide ? "text" : "password"}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="••••••••"
+            />
+          </div>
+
+          <div className="show">
+            <input
+              type="checkbox"
+              onClick={() => setHide(!hide)}
+            />
+            <span>
+              {hide ? "Hide password" : "Show password"}
+            </span>
+          </div>
+
+          <button type="submit">
+            create account
+          </button>
+
+          <div className="lower">
+            Already have an account?{" "}
+            <span onClick={() => navigate("/login")}>
+              Sign in
+            </span>
+          </div>
+
         </div>
-    )
+      </form>
+    </div>
+  )
 }
