@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-import { supabase } from "../../lib/supabaseClient"
 
 const red = {
   background: "#8f06065d",
