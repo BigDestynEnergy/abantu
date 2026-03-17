@@ -58,7 +58,7 @@ h1{cursor: pointer;}
          border: 1px solid #1f1f2a; 
          border-radius: 8px;}
  h1 span{color: var(--accent); }
-.search input{padding: 8px; background: var(--htxt); border: 2px solid transparent;color: white; border-radius: 8px;}
+.search input{padding: 8px; width: 300px;;background: var(--htxt); border: 2px solid transparent;color: white; border-radius: 8px;}
 .nav{display: flex; gap: 8px;}
 .nav .crd{background: #1f1f2a; padding: 6px; border-radius: 4px; cursor: pointer; transition: all 0.3s ease;}
 .nav .crd:hover{background: #343446;}

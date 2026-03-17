@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-import { supabase } from "../../lib/supabaseClient"
 
 const red = {
     background: '#8f06065d',
@@ -12,7 +11,7 @@ const green = {
     border: '1px solid #1db954'
 }
 
-export default function LoginPage({ setUser }) {
+export default function LoginPage() {
 
     const navigate = useNavigate()
 
@@ -23,37 +22,13 @@ export default function LoginPage({ setUser }) {
     const [note, setNote] = useState('')
    
 
-    const username = email.split('@')[0]
+   
 
     function handleNote(text){
         setNote(text)
         setTimeout(()=>{
             setNote('')
         }, 2000)
-    }
-
-    async function signInUser(){
-
-        const { data } = await supabase.auth.signInWithPassword({
-            email: email,
-            password: password
-        })
-
-        setYes(true)
-
-        const user = data.user
-
-        setUser({
-            name: user.user_metadata?.name || username,
-            email: user.email
-        })
-
-        handleNote('Login successful...Please wait')
-
-        setTimeout(()=>{
-            navigate('/home')
-        },2000)
-
     }
 
     function handleSubmit(e) {
@@ -64,7 +39,12 @@ export default function LoginPage({ setUser }) {
         else if(password === '') handleNote('Please enter your password')
 
         else{
-            signInUser()
+            setYes(true)
+             handleNote('Login successful...Please wait')
+
+        setTimeout(()=>{
+            navigate('/home')
+        },2000)
         }
     }
 

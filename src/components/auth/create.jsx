@@ -37,42 +37,15 @@ export default function LoginPage({ setUser }) {
     else if (!/\W/.test(password)) handleNote("Add a symbol")
     else if (password.length < 8) handleNote("Must contain at least 8 characters")
     else {
-      createAccount()
+  setYes(true)
+      handleNote('Account created successfully')
+      setUser(name)
+       setTimeout(() => {
+        navigate("/home")
+       }, 2000);
     }
   }
 
-  async function createAccount() {
-
-    const { data, error } = await supabase.auth.signUp({
-      email: email,
-      password: password,
-      options: {
-        data: {
-          name: name
-        }
-      }
-    })
-
-    if (error) {
-      setYes(false)
-      handleNote(error.message)
-      return
-    }
-
-    setYes(true)
-    handleNote("Account created... Please wait")
-
-    setTimeout(() => {
-
-      setUser({
-        name: name,
-        email: email
-      })
-
-      navigate("/home")
-
-    }, 2000)
-  }
 
   function handleSubmit(e) {
     e.preventDefault()
